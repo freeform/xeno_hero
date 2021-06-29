@@ -55,6 +55,40 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 ]
 %}
 
+{# Renders Size field. #}
+{# Sets data attibute value from values in database. #}
+{% if content.xeno_size|render %}
+  {% set size = content.xeno_size['#items'].getString() %}
+  {% set sizes = [
+    'cover' == size ? 'paragraph--size--cover',
+    'contain' == size ? 'paragraph--size--contain',
+  ]
+  %}
+{% endif %}
+
+{# Merges Size field with classes. #}
+{% set size_field = content.xeno_size|render %}
+{% if size_field %}
+  {% set classes = classes|merge(sizes) %}
+{% endif %}
+
+{# Renders Attachment field. #}
+{# Sets data attibute value from values in database. #}
+{% if content.xeno_attachment|render %}
+  {% set attachment = content.xeno_attachment['#items'].getString() %}
+  {% set attachments = [
+    'scroll' == attachment ? 'paragraph--attachment--scroll',
+    'fixed' == attachment ? 'paragraph--attachment--fixed',
+  ]
+  %}
+{% endif %}
+
+{# Merges attachment field with classes. #}
+{% set attachment_field = content.xeno_attachment|render %}
+{% if attachment_field %}
+  {% set classes = classes|merge(attachments) %}
+{% endif %}
+
 {# Renders Overlay field. #}
 {# Sets data attibute value from values in database. #}
 {% if content.xeno_overlay|render %}
@@ -138,5 +172,5 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
       {{ content.xeno_background_image }}
     </div>
   {% endif %}
-  {{ content|without('xeno_background_image', 'xeno_invert', 'xeno_offset', 'xeno_overlay', 'xeno_parallax') }}
+  {{ content|without('xeno_background_image', 'xeno_invert', 'xeno_offset', 'xeno_overlay', 'xeno_parallax', 'xeno_size', 'xeno_attachment') }}
 </div>

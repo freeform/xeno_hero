@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.xeno_size
+    - paragraphs.paragraphs_type.xeno_hero
+  module:
+    - options
+id: paragraph.xeno_hero.xeno_size
+field_name: xeno_size
+entity_type: paragraph
+bundle: xeno_hero
+label: Size
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

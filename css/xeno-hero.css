@@ -58,6 +58,23 @@
   display: none;
 }
 
+/* Size. */
+.paragraph--size--cover .paragraph--type--xeno-hero__image {
+  background-size: cover;
+}
+.paragraph--size--contain .paragraph--type--xeno-hero__image {
+  background-size: contain;
+}
+
+/* Attachment. */
+.paragraph--attachment--scroll .paragraph--type--xeno-hero__image {
+  background-attachment: scroll;
+}
+.paragraph--attachment--fixed .paragraph--type--xeno-hero__image {
+  background-attachment: fixed;
+  background-position: center;
+}
+
 /* Overlay. */
 [data-overlay] {
   position: relative;

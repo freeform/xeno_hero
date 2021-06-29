@@ -31,3 +31,50 @@ function xeno_hero_update_8001() {
   $message = t('Offset field added to the hero bundle. It allows you to modify the position of the background image. Navigate to the Manage form display and Manage display for Hero to enable the offset field.');
   return $message;
 }
+
+/**
+ * Adds size field to Hero paragraph.
+ */
+function xeno_hero_update_8002() {
+  // Sets variable for the path.
+  $path = drupal_get_path('module', 'xeno_hero');
+
+  // Create field storage.
+  $field_storage_yml = Yaml::parse(file_get_contents($path . '/config/install/field.storage.paragraph.xeno_size.yml'));
+  if (!FieldStorageConfig::loadByName($field_storage_yml['entity_type'], $field_storage_yml['field_name'])) {
+    FieldStorageConfig::create($field_storage_yml)->save();
+  }
+  // Create field instance.
+  $field_yml = Yaml::parse(file_get_contents($path . '/config/install/field.field.paragraph.xeno_hero.xeno_size.yml'));
+  if (!FieldConfig::loadByName($field_yml['entity_type'], $field_yml['bundle'], $field_yml['field_name'])) {
+    FieldConfig::create($field_yml)->save();
+  }
+
+  // Send message to updater.
+  $message = t('Size field added to the hero bundle. It allows you to modify the size of the background image (contain or cover). Navigate to the Manage form display and Manage display for Hero to enable the size field.');
+  return $message;
+}
+
+
+/**
+ * Adds attachment field to Hero paragraph.
+ */
+function xeno_hero_update_8002() {
+  // Sets variable for the path.
+  $path = drupal_get_path('module', 'xeno_hero');
+
+  // Create field storage.
+  $field_storage_yml = Yaml::parse(file_get_contents($path . '/config/install/field.storage.paragraph.xeno_attachment.yml'));
+  if (!FieldStorageConfig::loadByName($field_storage_yml['entity_type'], $field_storage_yml['field_name'])) {
+    FieldStorageConfig::create($field_storage_yml)->save();
+  }
+  // Create field instance.
+  $field_yml = Yaml::parse(file_get_contents($path . '/config/install/field.field.paragraph.xeno_hero.xeno_attachment.yml'));
+  if (!FieldConfig::loadByName($field_yml['entity_type'], $field_yml['bundle'], $field_yml['field_name'])) {
+    FieldConfig::create($field_yml)->save();
+  }
+
+  // Send message to updater.
+  $message = t('Attachment field added to the hero bundle. It allows you to modify the attachment of the background image (scroll or fixed). Navigate to the Manage form display and Manage display for Hero to enable the attachment field.');
+  return $message;
+}

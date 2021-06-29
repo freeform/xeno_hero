@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.xeno_size
+field_name: xeno_size
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'contain'
+      label: 'Contain'
+    -
+      value: 'cover'
+      label: 'Cover'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
