@@ -59,7 +59,7 @@ function xeno_hero_update_8002() {
 /**
  * Adds attachment field to Hero paragraph.
  */
-function xeno_hero_update_8002() {
+function xeno_hero_update_8003() {
   // Sets variable for the path.
   $path = drupal_get_path('module', 'xeno_hero');
 
