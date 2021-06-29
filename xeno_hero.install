@@ -8,23 +8,23 @@
 use Symfony\Component\Yaml\Yaml;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\Core\Config\FileStorage;
 
 /**
  * Adds offset field to Hero paragraph.
  */
 function xeno_hero_update_8001() {
-  // Sets variable for the path.
-  $path = drupal_get_path('module', 'xeno_hero');
+  $module_handler = \Drupal::moduleHandler();
+  $config_storage = new FileStorage($module_handler->getModule('xeno_hero')->getPath() . '/config/install');
 
-  // Create field storage.
-  $field_storage_yml = Yaml::parse(file_get_contents($path . '/config/install/field.storage.paragraph.xeno_offset.yml'));
-  if (!FieldStorageConfig::loadByName($field_storage_yml['entity_type'], $field_storage_yml['field_name'])) {
-    FieldStorageConfig::create($field_storage_yml)->save();
-  }
-  // Create field instance.
-  $field_yml = Yaml::parse(file_get_contents($path . '/config/install/field.field.paragraph.xeno_hero.xeno_offset.yml'));
-  if (!FieldConfig::loadByName($field_yml['entity_type'], $field_yml['bundle'], $field_yml['field_name'])) {
-    FieldConfig::create($field_yml)->save();
+  foreach (['field.storage.paragraph.xeno_offset', 'field.field.paragraph.xeno_hero.xeno_offset'] as $config_name) {
+    $config_record = $config_storage->read($config_name);
+
+    $entity_type = \Drupal::service('config.manager')->getEntityTypeIdByName($config_name);
+    /** @var \Drupal\Core\Config\Entity\ConfigEntityStorageInterface $storage */
+    $storage = \Drupal::entityTypeManager()->getStorage($entity_type);
+    $entity = $storage->createFromStorageRecord($config_record);
+    $entity->save();
   }
 
   // Send message to updater.
@@ -36,18 +36,17 @@ function xeno_hero_update_8001() {
  * Adds size field to Hero paragraph.
  */
 function xeno_hero_update_8002() {
-  // Sets variable for the path.
-  $path = drupal_get_path('module', 'xeno_hero');
+  $module_handler = \Drupal::moduleHandler();
+  $config_storage = new FileStorage($module_handler->getModule('xeno_hero')->getPath() . '/config/install');
 
-  // Create field storage.
-  $field_storage_yml = Yaml::parse(file_get_contents($path . '/config/install/field.storage.paragraph.xeno_size.yml'));
-  if (!FieldStorageConfig::loadByName($field_storage_yml['entity_type'], $field_storage_yml['field_name'])) {
-    FieldStorageConfig::create($field_storage_yml)->save();
-  }
-  // Create field instance.
-  $field_yml = Yaml::parse(file_get_contents($path . '/config/install/field.field.paragraph.xeno_hero.xeno_size.yml'));
-  if (!FieldConfig::loadByName($field_yml['entity_type'], $field_yml['bundle'], $field_yml['field_name'])) {
-    FieldConfig::create($field_yml)->save();
+  foreach (['field.storage.paragraph.xeno_size', 'field.field.paragraph.xeno_hero.xeno_size'] as $config_name) {
+    $config_record = $config_storage->read($config_name);
+
+    $entity_type = \Drupal::service('config.manager')->getEntityTypeIdByName($config_name);
+    /** @var \Drupal\Core\Config\Entity\ConfigEntityStorageInterface $storage */
+    $storage = \Drupal::entityTypeManager()->getStorage($entity_type);
+    $entity = $storage->createFromStorageRecord($config_record);
+    $entity->save();
   }
 
   // Send message to updater.
@@ -60,18 +59,17 @@ function xeno_hero_update_8002() {
  * Adds attachment field to Hero paragraph.
  */
 function xeno_hero_update_8003() {
-  // Sets variable for the path.
-  $path = drupal_get_path('module', 'xeno_hero');
+  $module_handler = \Drupal::moduleHandler();
+  $config_storage = new FileStorage($module_handler->getModule('xeno_hero')->getPath() . '/config/install');
 
-  // Create field storage.
-  $field_storage_yml = Yaml::parse(file_get_contents($path . '/config/install/field.storage.paragraph.xeno_attachment.yml'));
-  if (!FieldStorageConfig::loadByName($field_storage_yml['entity_type'], $field_storage_yml['field_name'])) {
-    FieldStorageConfig::create($field_storage_yml)->save();
-  }
-  // Create field instance.
-  $field_yml = Yaml::parse(file_get_contents($path . '/config/install/field.field.paragraph.xeno_hero.xeno_attachment.yml'));
-  if (!FieldConfig::loadByName($field_yml['entity_type'], $field_yml['bundle'], $field_yml['field_name'])) {
-    FieldConfig::create($field_yml)->save();
+  foreach (['field.storage.paragraph.xeno_attachment', 'field.field.paragraph.xeno_hero.xeno_attachment'] as $config_name) {
+    $config_record = $config_storage->read($config_name);
+
+    $entity_type = \Drupal::service('config.manager')->getEntityTypeIdByName($config_name);
+    /** @var \Drupal\Core\Config\Entity\ConfigEntityStorageInterface $storage */
+    $storage = \Drupal::entityTypeManager()->getStorage($entity_type);
+    $entity = $storage->createFromStorageRecord($config_record);
+    $entity->save();
   }
 
   // Send message to updater.

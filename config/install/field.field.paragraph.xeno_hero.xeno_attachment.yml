@@ -11,12 +11,12 @@ field_name: xeno_attachment
 entity_type: paragraph
 bundle: xeno_hero
 label: Attachment
-description: ''
+description: 'Choose whether the background image will scroll with the content or be fixed to the viewport of the browser.'
 required: false
 translatable: false
 default_value:
   -
-    value: '0'
+    value: 'scroll'
 default_value_callback: ''
 settings: {  }
 field_type: list_string

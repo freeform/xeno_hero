@@ -44,6 +44,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+  xeno_size:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  xeno_attachment:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   xeno_offset:
     weight: 7
     settings:

@@ -11,12 +11,12 @@ field_name: xeno_size
 entity_type: paragraph
 bundle: xeno_hero
 label: Size
-description: ''
+description: 'Choose the type of background sizing.'
 required: false
 translatable: false
 default_value:
   -
-    value: '0'
+    value: 'contain'
 default_value_callback: ''
 settings: {  }
 field_type: list_string
