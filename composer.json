@@ -1,6 +1,6 @@
 {
   "name": "xenomedia/xeno_hero",
-  "type": "drupal-contrib-module",
+  "type": "drupal-module",
   "description": "Drupal module that creates a Hero Paragraphs bundle.",
   "keywords": ["Drupal"],
   "license": "GPL-2.0+",
