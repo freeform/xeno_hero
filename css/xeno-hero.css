@@ -39,6 +39,7 @@
   background-image: none;
   background-origin: padding-box;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: 100%;
   height: 100%;
   left: 0;
@@ -72,7 +73,6 @@
 }
 .paragraph--attachment--fixed .paragraph--type--xeno-hero__image {
   background-attachment: fixed;
-  background-position: center;
 }
 
 /* Overlay. */
